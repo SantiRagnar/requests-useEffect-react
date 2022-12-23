@@ -9,14 +9,13 @@ import Ejercicio7 from "./components/Ejercicio7";
 import Ejercicio8 from "./components/Ejercicio8";
 import Ejercicio9 from "./components/Ejercicio9";
 import Ejercicio10 from "./components/Ejercicio10";
-import Ejercicio10Resuelto from "./components/Ejercicio10 resuelto";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         {/* Ejercicios de Axios GET: */}
-        {/* <Ejercicio1/> */}
+        <Ejercicio1/>
         {/* <Ejercicio2/> */}
         {/* <Ejercicio3/> */}
         {/* <Ejercicio4/> */}
@@ -28,9 +27,6 @@ function App() {
         {/* <Ejercicio8/> */}
         {/* <Ejercicio9/> */}
         {/* <Ejercicio10/> */}
-        <Ejercicio10Resuelto/>
-
-
       </header>
     </div>
   );
