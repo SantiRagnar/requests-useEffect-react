@@ -34,8 +34,19 @@ const Ejercicio1 = () => {
       console.error(error);
     }
   };
-  return <>
-  
-  </>;
+  return (
+    <>
+      <button onClick={() => getUser()}>
+        Hola
+      </button>
+      {data != "No Data" && 
+        <ul style={{ textAlign: "start" }}>
+          <li>userId: {data.userId}</li>
+          <li>id: {data.id}</li>
+          <li>title: {data.title}</li>
+          <li>completed: {data.completed}</li>
+        </ul>}
+    </>
+  );
 };
 export default Ejercicio1;

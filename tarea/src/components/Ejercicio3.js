@@ -30,7 +30,7 @@ const getUsers = async (callback) => {
         "https://jsonplaceholder.typicode.com/todos/"
       );
       callback(response.data);
-    } catch (error) {}
+    } catch (error) {console.log(error)}
   };
 
 const userList = (user) => {
@@ -49,31 +49,10 @@ const Ejercicio3 = () => {
   const [users, setUsers] = useState([]);
   return (
     <div style={{ textAlign: "left" }}>
+      <button onClick={() => getUsers(setUsers)}>Traer users</button>
       <h2>Usuarios:</h2>.
-        {/* La respuesta va aquí! */}
+      {users.map(user=>userList(user))}
     </div>
   );
 };
 export default Ejercicio3;
-
-// Respuesta:
-// El retorno del componente debe tener un botón que ejecute la llamada a la API, 
-// que luego guarde la información en una variable de useState:
-//    <button onClick={() => getUsers(setUsers)}> GET USER DATA</button>
-
-// Luego, se debe aplicar map() al array, llamando a la función userList() para que 
-// genere las listas HTML de usuarios por cada usuario presente en el array:
-//    {users.map((user) => userList(user))}
-
-// El resultado final será:
-// const Ejercicio3 = () => {
-//     const [users, setUsers] = useState([]);
-//     return (
-//       <div style={{ textAlign: "left" }}>
-//         <h2>Usuarios:</h2>.
-//     <button onClick={() => getUsers(setUsers)}> GET USER DATA</button>
-//     {users.map((user) => userList(user))}
-  
-//       </div>
-//     );
-//   };

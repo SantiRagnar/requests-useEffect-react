@@ -20,6 +20,10 @@ const getUser = async (callback) => {
 const Ejercicio8 = () => {
   const [data, setData] = useState("No Data");
 
+  useEffect(()=>{
+    getUser(setData)
+  },[])
+
   return (
     <>
       <ul style={{ textAlign: "start" }}>
@@ -32,30 +36,3 @@ const Ejercicio8 = () => {
   );
 };
 export default Ejercicio8;
-
-
-// Respuesta:
-// useEffect debe aplicarse siempre en el cuerpo del componente, nunca en el retorno.
-// también deben recordar que para que el hook se ejecute al momento de carga del componente, debe declararse
-// vacío el array de variables a monitorear, como segundo parámetro en la función useEffect:
-
-// const Ejercicio8 = () => {
-//     const [data, setData] = useState("No Data");
-//  
-//     useEffect(
-//       ()=>{getUser(setData)},
-//       []
-//     )
-//
-//     return (
-//       <>
-//         <ul style={{ textAlign: "start" }}>
-//           <li>userId: {data === "No Data" ? "No Data" : data.userId}</li>
-//           <li>id: {data === "No Data" ? "No Data" : data.id}</li>
-//           <li>title: {data === "No Data" ? "No Data" : data.title}</li>
-//           <li>completed: {data === "No Data" ? "No Data" : data.completed}</li>
-//         </ul>
-//       </>
-//     );
-//   };
-//   export default Ejercicio8;

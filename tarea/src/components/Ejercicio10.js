@@ -10,8 +10,21 @@
 // también puede utilizar como guía los ejemplos de clase para aplicar la animación o consultar el Ejercicio resuelto.
 
 import axios from "axios";
+import { useEffect, useState } from "react";
+import Animation from "./animations/exampleAnimation";
 
 const url = "https://dummyjson.com/products";
+
+const styles = {
+  contCard: {
+    width: "400px",
+    display: "flex",
+    flexDirection: "column",
+    margin: "0 0 40px 0",
+    background: "#22252c",
+    borderRadius: "6px"
+  }
+}
 
 const getProducts = async (callback, url) => {
   try {
@@ -24,11 +37,32 @@ const getProducts = async (callback, url) => {
   }
 };
 
+const Card = (prod) =>{
+  return(
+    <div style={styles.contCard}>
+      <img src={prod.images[0]}></img>
+      <div >
+        <h1 >{prod.title}</h1>
+        <p >{prod.description}</p>
+      </div>
+      <h2>Price: ${prod.price}</h2>
+    </div>
+  )
+}
+
 const Ejercicio10 = () => {
+  const [data, setData] = useState([])
+
+  console.log(data)
+
+  useEffect(()=>{
+    getProducts(setData, url)
+  },[])
+
   return (
-    <>
-      
-    </>
+    <div>
+      {data === false ? <Animation /> : data.map((prod) => Card(prod))}
+    </div>
   );
 };
 export default Ejercicio10;

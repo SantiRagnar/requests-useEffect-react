@@ -25,7 +25,17 @@ const userData = {
   userId: 1,
 };
 
-const insertUser = async (/*???*/) => { };
+export const insertUser = async (payload) => {
+    try{
+      const res = await axios.post(
+        "https://jsonplaceholder.typicode.com/posts/",
+        payload
+      )
+      return(res.data)
+    }catch(err){
+      console.log({err})
+    }
+ };
 
 
 const Ejercicio5 = () => {
@@ -34,20 +44,3 @@ const Ejercicio5 = () => {
   </>;
 };
 export default Ejercicio5;
-
-
-// Respuesta:
-// La función tiene un parámetro llamado "payload" que es como se suele llamar a la información 
-// que se envía en un request de tipo POST:
-
-// const insertUser = async (payload) => {
-//     try {
-//       const response = await axios.post(
-//         "https://jsonplaceholder.typicode.com/posts/",
-//         payload
-//       );
-//       console.table(response.data);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };

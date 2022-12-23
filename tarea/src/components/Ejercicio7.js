@@ -17,17 +17,11 @@ const time = () => {
 };
 
 const Ejercicio7 = () => {
+
+  useEffect(()=>{
+    time();
+  },[])
+
   return <h1>Ejercicio 7 (Ver el resultado en la consola)</h1>;
 };
 export default Ejercicio7;
-
-// Respuesta:
-// const Ejercicio7 = () => {
-//     useEffect(time, []);
-//     return <h1>Ejercicio 7 (Ver el resultado en la consola)</h1>;
-//   };
-//   export default Ejercicio7;
-
-// Observe que el primer parámetro que recibe useEffect es una función a ejecutar,
-// es por ello que utilizamos como argumento "time" en vez de "time()",
-// ya que "time()" ejecuta la función en sí misma y "time" es equivalente a declarar la función es este lugar.
